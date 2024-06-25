@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.text_editor.TextController">
+    <Label text="Enter text to process:"/>
+    <TextArea fx:id="textInput" promptText="Enter text here" wrapText="true"/>
+
+    <Label text="Enter regex pattern:"/>
+    <TextField fx:id="regexInput" promptText="Enter regex here"/>
+
+    <Label text="Enter replacement text (for replace operation):"/>
+    <TextField fx:id="replaceInput" promptText="Enter replacement text here"/>
+
+    <HBox spacing="10">
+        <Button text="Search" onAction="#handleSearch">
+            <tooltip>
+                <Tooltip text="Search using regex pattern"/>
+            </tooltip>
+        </Button>
+        <Button text="Match" onAction="#handleMatch">
+            <tooltip>
+                <Tooltip text="Check if entire text matches regex pattern"/>
+            </tooltip>
+        </Button>
+        <Button text="Replace" onAction="#handleReplace">
+            <tooltip>
+                <Tooltip text="Replace text using regex pattern"/>
+            </tooltip>
+        </Button>
+    </HBox>
+
+    <TextArea fx:id="resultArea" promptText="Results will be shown here" wrapText="true" editable="false"/>
+</VBox>
