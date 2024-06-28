@@ -1,36 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
 
-<VBox spacing="10" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.text_editor.TextController">
-    <Label text="Enter text to process:"/>
-    <TextArea fx:id="textInput" promptText="Enter text here" wrapText="true"/>
-
-    <Label text="Enter regex pattern:"/>
-    <TextField fx:id="regexInput" promptText="Enter regex here"/>
-
-    <Label text="Enter replacement text (for replace operation):"/>
-    <TextField fx:id="replaceInput" promptText="Enter replacement text here"/>
-
+<VBox prefHeight="526.0" prefWidth="800.0" spacing="10" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.text_editor.controller.TextController">
+    <Label text="Enter text to process:" />
+    <TextArea fx:id="textInput" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100" minWidth="800" prefHeight="100" prefWidth="800" promptText="Enter text here" wrapText="true" VBox.vgrow="ALWAYS" />
+    <TextField fx:id="regexInput" promptText="Enter regex here" VBox.vgrow="ALWAYS" />
+    <TextField fx:id="replaceInput" promptText="Enter replacement text" VBox.vgrow="ALWAYS" />
+    <TextField fx:id="indexInput" promptText="Index" />
     <HBox spacing="10">
-        <Button text="Search" onAction="#handleSearch">
-            <tooltip>
-                <Tooltip text="Search using regex pattern"/>
-            </tooltip>
-        </Button>
-        <Button text="Match" onAction="#handleMatch">
-            <tooltip>
-                <Tooltip text="Check if entire text matches regex pattern"/>
-            </tooltip>
-        </Button>
-        <Button text="Replace" onAction="#handleReplace">
-            <tooltip>
-                <Tooltip text="Replace text using regex pattern"/>
-            </tooltip>
-        </Button>
+        <Button onAction="#handleSearch" text="Search" />
+        <Button onAction="#handleReplaceFirst" text="Replace" />
+        <Button onAction="#handleReplace" text="ReplaceAll" />
+        <Button onAction="#handleAdd" text="Add to collection" />
+        <Button onAction="#handleUpdate" text="Update" />
+        <Button onAction="#handleDelete" text="Delete" />
+        <Button text="Upload File" onAction="#handleFileUpload" />
     </HBox>
 
-    <TextArea fx:id="resultArea" promptText="Results will be shown here" wrapText="true" editable="false"/>
+    <ScrollPane prefHeight="100.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+        <TextFlow fx:id="resultArea" />
+    </ScrollPane>
+    <ListView fx:id="textListView" prefHeight="183.0" prefWidth="800.0" VBox.vgrow="ALWAYS" />
 </VBox>
