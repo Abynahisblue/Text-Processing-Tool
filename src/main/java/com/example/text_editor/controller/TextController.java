@@ -148,18 +148,20 @@ public class TextController {
             StringBuilder replacedText = new StringBuilder();
             TextFlow textFlow = new TextFlow();
             int lastIndex = 0;
+            boolean replaced = false;
 
-            while (matcher.find()) {
+            while (matcher.find() && !replaced) {
                 if (matcher.start() > lastIndex) {
                     Text normalText = new Text(text.substring(lastIndex, matcher.start()));
                     textFlow.getChildren().add(normalText);
                 }
-                Text replacedPart = new Text(replacement);
+                Text replacedPart = new Text(replacement.replaceFirst(regex, text));
                 replacedPart.setStyle("-fx-fill: green; -fx-font-weight: bold;");
                 textFlow.getChildren().add(replacedPart);
                 replacedText.append(text, lastIndex, matcher.start());
                 replacedText.append(replacement);
                 lastIndex = matcher.end();
+                replaced = true;
             }
             if (lastIndex < text.length()) {
                 Text remainingText = new Text(text.substring(lastIndex));
