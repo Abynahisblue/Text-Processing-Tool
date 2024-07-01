@@ -35,8 +35,6 @@ Java JDK 11 or higher.
 Contributing
 Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgments
 JavaFX Documentation
