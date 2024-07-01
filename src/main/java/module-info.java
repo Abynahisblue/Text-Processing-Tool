@@ -4,10 +4,10 @@ module com.example.text_editor {
     requires java.desktop;
 
 
-    opens com.example.text_editor to javafx.fxml;
-    exports com.example.text_editor;
-    exports com.example.text_editor.controller;
-    opens com.example.text_editor.controller to javafx.fxml;
-    exports com.example.text_editor.model;
-    opens com.example.text_editor.model to javafx.fxml;
+    opens com.example.textEditor to javafx.fxml;
+    exports com.example.textEditor;
+    exports com.example.textEditor.controller;
+    opens com.example.textEditor.controller to javafx.fxml;
+    exports com.example.textEditor.model;
+    opens com.example.textEditor.model to javafx.fxml;
 }
